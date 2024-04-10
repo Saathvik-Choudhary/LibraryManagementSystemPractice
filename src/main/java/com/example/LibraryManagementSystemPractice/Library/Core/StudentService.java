@@ -41,4 +41,5 @@ public class StudentService {
         GetStudentByRollNoResponse response=new GetStudentByRollNoResponse(responseAccumilator);
         return (response);
     }
+
 }

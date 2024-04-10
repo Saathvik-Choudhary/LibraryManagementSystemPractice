@@ -1,8 +1,6 @@
 package com.example.LibraryManagementSystemPractice.Library.Domain;
 
 import jakarta.persistence.*;
-import org.springframework.lang.NonNull;
-import org.springframework.lang.NonNullFields;
 
 @Entity
 @Table(name="book")
@@ -12,7 +10,7 @@ public class Book {
     private String author;
 
     @Column(name="isbn",nullable = false,updatable = false)
-    private String iSBN;
+    private String isbn;
 
     @Column(name="publisher",nullable = false,updatable = false)
     private String publisher;
@@ -33,8 +31,8 @@ public class Book {
         return author;
     }
 
-    public String getiSBN() {
-        return iSBN;
+    public String getIsbn() {
+        return isbn;
     }
 
     public String getPublisher() {
@@ -51,7 +49,7 @@ public class Book {
 
     public Book(String author, String iSBN, String publisher, String title) {
         this.author = author;
-        this.iSBN = iSBN;
+        this.isbn = iSBN;
         this.publisher = publisher;
         this.title = title;
     }

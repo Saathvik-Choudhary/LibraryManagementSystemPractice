@@ -23,13 +23,16 @@ public interface BookRepository extends CrudRepository<Book,Long>, JpaSpecificat
     @Query("FROM Book WHERE author=?1")
     Collection<Book> getBooksByAuthor(String author);
 
+    default List<Book> findBooksByAuthor(String author)
+    {
+        Specification<Book> books=(root,query,builder)->builder.equal(root.get("author"),author);
+
+        return findAll(books);
+    }
+
 
     @Query("FROM Book WHERE title=?1")
     Collection<Book> getBooksByTitle(String title);
-
-    @Query("FROM Book WHERE iSBN=?1")
-    Collection<Book> getBooksByIsbn(String isbn);
-
 
     default List<Book> findBookByTitle(String title){
         Specification<Book> bookSpecification =  (root , query, builder)
@@ -37,6 +40,18 @@ public interface BookRepository extends CrudRepository<Book,Long>, JpaSpecificat
 
         return findAll(bookSpecification);
     }
+
+    @Query("FROM Book WHERE isbn=?1")
+    Collection<Book> getBooksByIsbn(String isbn);
+
+    default List<Book> findBooksByIsbn(String isbn)
+    {
+        Specification<Book> books=(root,query,builder)->builder.equal(root.get("isbn"),isbn);
+
+        return findAll(books);
+    }
+
+
 
     // @Query(value="SELECT * FROM Book b WHERE b.author=?1",nativeQuery = true)
     //Collection<Book> getBookByTitle(String title);
