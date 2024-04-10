@@ -23,7 +23,7 @@ public class BookService {
         for(var i:books)
         {
             BookSummary bookSummary=new BookSummary(i.getTitle(), i.getAuthor(), i.getiSBN(), i.getPublisher(), i.getId());
-            bookSummary.validate();
+            //bookSummary.validate();
             responsebooks.add(bookSummary);
         }
         return (new GetBookByAuthorResponse(responsebooks));
