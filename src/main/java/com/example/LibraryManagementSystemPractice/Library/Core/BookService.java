@@ -1,8 +1,10 @@
 package com.example.LibraryManagementSystemPractice.Library.Core;
 
 import com.example.LibraryManagementSystemPractice.Library.Data.*;
+import com.example.LibraryManagementSystemPractice.Library.Domain.Book;
 import com.example.LibraryManagementSystemPractice.Library.Persistence.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -55,4 +57,25 @@ public class BookService {
         return (new GetBookByIsbnResponse(responsebooks));
     }
 
+    public PutBookResponse putBook(final PutBookRequest request) {
+
+
+        bookRepository.save(new Book(request.getAuthor(), request.getIsbn(), request.getPublisher(), request.getTitle()));
+
+        return new PutBookResponse(request.getAuthor(), request.getIsbn(), request.getPublisher(), request.getTitle());
+
+    }
+
+    public GetBookByAuthorResponse getAll()
+    {
+        final var books=bookRepository.findAll();
+
+        Collection<BookSummary> responsebooks=new ArrayList<>();
+        for(var i:books)
+        {
+            responsebooks.add(new BookSummary(i.getTitle(), i.getAuthor(), i.getIsbn(), i.getPublisher(), i.getId()));
+        }
+
+        return new GetBookByAuthorResponse(responsebooks);
+    }
 }

@@ -4,7 +4,6 @@ import org.springframework.lang.NonNull;
 
 public class GetBookByAuthorRequest {
 
-
     private final String author;
 
     public GetBookByAuthorRequest(String author) {
