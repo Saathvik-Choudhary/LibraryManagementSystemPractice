@@ -1,8 +1,10 @@
 package com.example.LibraryManagementSystemPractice.Library.Core;
 
 import com.example.LibraryManagementSystemPractice.Library.Data.*;
+import com.example.LibraryManagementSystemPractice.Library.Domain.Book;
 import com.example.LibraryManagementSystemPractice.Library.Persistence.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -31,11 +33,12 @@ public class BookService {
 
     public GetBookByTitleResponse getBooksByTitle(final GetBookByTitleRequest request)
     {
-        final var books=bookRepository.getBooksByTitle(request.getTitle());
+        final var books=bookRepository.findBookByTitle(request.getTitle());
+
 
 
         Collection<BookSummary> responsebooks=new ArrayList<>();
-        for(var i:books)
+        for(var i : books)
         {
             responsebooks.add(new BookSummary(i.getTitle(), i.getAuthor(), i.getiSBN(), i.getPublisher(), i.getId()));
         }

@@ -1,0 +1,51 @@
+Library Management System
+
+
+Project Title: Library Management System
+Project Description:
+You are tasked with building a simple Library Management System using Spring Boot. The system should allow librarians to manage books, borrowers, and loans efficiently. Users should be able to perform basic CRUD (Create, Read, Update, Delete) operations on books, borrowers, and loans.
+
+Project Features:
+* 		Book Management:
+    * Add a new book to the library.
+    * View a list of all books in the library.
+    * Update book details such as title, author, and availability.
+    * Delete a book from the library.
+
+* 		Borrower Management:
+    * Add a new borrower to the system.
+    * View a list of all borrowers.
+    * Update borrower details such as name, contact information, and borrowing history.
+    * Delete a borrower from the system.
+
+* 		Loan Management:
+    * Issue a book to a borrower.
+    * View a list of all current loans.
+    * Mark a loan as returned when the borrower returns the book.
+    * Calculate fines for late returns.
+
+* 		Search Functionality:
+    * Allow users to search for books by title, author, or ISBN.
+    * Allow users to search for borrowers by name or contact information.
+
+Technical Requirements:
+* 		Use Spring Boot to develop the application.
+* 		Use Spring Data JPA for data access.
+* 		Implement RESTful APIs for CRUD operations.
+* 		Utilize H2 or MySQL as the database.
+* 		Implement exception handling to handle errors gracefully.
+* 		Implement validation to ensure data integrity.
+* 		Implement basic authentication and authorization for librarian access.
+* 		Write unit tests for critical components of the application.
+Deliverables:
+* 		Source code of the Spring Boot application.
+* 		Documentation detailing how to build, deploy, and use the application.
+* 		Test cases and test results.
+* 		Any additional resources or dependencies required for running the application.
+Optional Enhancements:
+* 		Implement a frontend interface using Thymeleaf, Angular, or React.
+* 		Add logging to track system activities.
+* 		Implement pagination for large datasets.
+* 		Implement email notifications for overdue loans.
+* 		Implement role-based access control for different types of users.
+This project will provide you with hands-on experience in building a basic CRUD application using Spring Boot while incorporating essential features such as data validation, exception handling, and security.
