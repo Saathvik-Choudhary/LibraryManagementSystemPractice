@@ -41,7 +41,8 @@ public class BookApi {
     @PutMapping("/save")
     public ResponseEntity<PutBookResponse> putBook(@RequestBody final PutBookRequest request)
     {
-        return ResponseEntity.ok(bookService.putBook(request));
+        PutBookResponse response=bookService.putBook(request);
+        return response.isok()?ResponseEntity.ok(response):ResponseEntity.badRequest().body(response);
     }
 
     /**
