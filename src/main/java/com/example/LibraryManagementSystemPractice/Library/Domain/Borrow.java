@@ -13,6 +13,9 @@ public class Borrow {
 
 
     //@Embedded
+    // embedded entity can't be used as it will include the entire student entity into
+    // the borrower entity so it is going to club the two entities
+    //so you can't use id multiple times including the embedded entities
     //private final Student student;
 
     //@Embedded

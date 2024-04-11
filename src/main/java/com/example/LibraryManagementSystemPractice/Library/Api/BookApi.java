@@ -42,7 +42,8 @@ public class BookApi {
     public ResponseEntity<PutBookResponse> putBook(@RequestBody final PutBookRequest request)
     {
         PutBookResponse response=bookService.putBook(request);
-        return response.isok()?ResponseEntity.ok(response):ResponseEntity.badRequest().body(response);
+        return ResponseEntity.ok(response);
+        //return response.isok()?ResponseEntity.ok(response):ResponseEntity.badRequest().body(response);
     }
 
     /**
